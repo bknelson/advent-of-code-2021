@@ -56,6 +56,11 @@ func (f *fishPopulation) count() int {
 	return sum
 }
 
+func (f *fishPopulation) prettyCount() {
+	fmt.Printf("There are %d fish after %d generations.\n", (*f).count(), (*f).gen)
+	return
+}
+
 func fishPopulationFromCounters(counters string) (*fishPopulation, error) {
 	fp := fishPopulation{0, emptyState()}
 
@@ -105,5 +110,5 @@ func main() {
 		newFish.generation()
 	}
 
-	fmt.Println(newFish.count())
+	newFish.prettyCount()
 }
